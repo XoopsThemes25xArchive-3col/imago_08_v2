@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<!-- Assign Theme name -->
+<{assign var=theme_name value=$xoTheme->folderName}>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+<{$xoops_module_header}>
+</head>
+<body>
+	<table width="900" align="center" class="table_block">
+		<tr>
+			<td>
+				<table width="892"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="head_table">
+					<tr>
+						<td>
+							<table width="100%"  border="0" cellspacing="6" cellpadding="0">
+								<tr>
+									<td class="head_logo"><a href="<{$xoops_url}>/"><img src="<{$xoops_imageurl}>images/logo.gif" border="0" /></a></td>
+									<td class="head_banner"><{$xoops_banner}></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="6">&nbsp;</td>
+									<td width="197" height="26" bgcolor="#CCCCCC">&nbsp;&nbsp;<a href="<{$xoops_url}>">home</a></td>
+									<td width="6"></td>
+									<td bgcolor="#9CCFCE">&nbsp;</td>
+									<td width="6"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table width="100%"  border="0" cellspacing="6" cellpadding="0">
+								<tr>
+								<{if $xoops_lblocks}>
+									<td width="197" height="26" valign="top" bgcolor="#9CCFCE" class="head_logo">
+										<!-- Start left blocks loop -->
+										<{if $xoops_showlblock}>
+											<{foreach item=block from=$xoBlocks.canvas_left}>
+												<{includeq file="$theme_name/theme_blockleft.html"}>
+											<{/foreach}>
+										<{/if}>
+										<!-- End left blocks loop -->
+									</td>
+								<{/if}>
+									<td valign="top" bgcolor="#FFFFFF">
+										<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td valign="top" bgcolor="#639A9C"><div align="right"><img src="<{$xoops_imageurl}>images/module.jpg"/></div></td>
+											</tr>
+											<tr>
+												<td height="6"></td>
+											</tr> 
+										<{if $xoBlocks.page_topleft or $xoBlocks.page_topcenter or $xoBlocks.page_topright}>
+											<tr>
+												<td>
+												<!-- Start center-center blocks loop -->
+													<{foreach item=block from=$xoBlocks.page_topcenter}>
+														<{includeq file="$theme_name/theme_blockcenter_c.html"}>
+													<{/foreach}>
+												<!-- End center-center blocks loop -->
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td width="49%" valign="top">
+															<!-- Start center-left blocks loop -->
+																<{foreach item=block from=$xoBlocks.page_topleft}>
+																	<{includeq file="$theme_name/theme_blockcenter_l.html"}>
+																<{/foreach}>
+															<!-- End center-left blocks loop --> 				
+															</td>
+															<td width="1%">&nbsp;</td>
+															<td width="50%" valign="top">
+															<!-- Start center-right blocks loop -->
+																<{foreach item=block from=$xoBlocks.page_topright}>
+																	<{includeq file="$theme_name/theme_blockcenter_r.html"}>
+																<{/foreach}>
+															<!-- End center-right blocks loop -->
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr> 
+										<{/if}>
+											<tr>
+												<td class="content_block">
+													<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td valign="top">
+																<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+																	<tr>
+																		<td  class="content"><{$xoops_contents}></td>
+																	</tr>
+																	<!-- Start center bottom blocks loop -->
+																	<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+																		<{if $xoBlocks.page_bottomcenter}>
+																		<tr>
+																			<td>
+																				<{foreach from=$xoBlocks.page_bottomcenter item=block}>
+																					<{include file="$theme_name/theme_blockcenter_c.html"}>
+																				<{/foreach}>
+																			</td>
+																		</tr>
+																		<{/if}>
+																		<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+																		<tr>
+																			<td>
+																				<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+																					<tr>
+																						<td width="49%" valign="top">
+																							<{foreach from=$xoBlocks.page_bottomleft item=block}>
+																								<{include file="$theme_name/theme_blockcenter_l.html"}>
+																							<{/foreach}>
+																						</td>
+																						<td width="1%">&nbsp;</td>
+																						<td width="50%" valign="top">
+																							<{foreach from=$xoBlocks.page_bottomright item=block}>
+																								<{include file="$theme_name/theme_blockcenter_r.html"}>
+																							<{/foreach}>
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr> 
+																		<{/if}>
+																	<{/if}>
+																	<!-- End center bottom blocks loop -->
+																</table>
+															</td>
+															<{if $xoops_showrblock}>
+															<td width="6">&nbsp;</td>
+															<td width="175" valign="top">
+															<!-- Start right blocks loop -->
+																<{foreach item=block from=$xoBlocks.canvas_right}>
+																	<{includeq file="$theme_name/theme_blockright.html"}>
+																<{/foreach}>
+															<!-- End right blocks loop -->
+															</td>
+															<{/if}>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center">
+								<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td>
+											<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td width="6"></td>
+													<td height="30" bgcolor="#9CCFCE">
+														<div align="center"><{$xoops_footer}></div>
+													</td>
+													<td width="6"></td>
+												</tr>
+												<tr>
+													<td height="6" colspan="3"></td>
+												</tr>
+												<tr>
+													<td height="6"></td>
+													<td class="design">THEME DESIGN: <a href="http://www.imagocn.net/theme/">IMAGO:THEMES</a>&nbsp;&nbsp;THEME NAME: <strong>imago08</strong></td>
+													<td height="6"></td>
+												</tr>
+												<tr>
+													<td height="16"></td>
+													<td height="16">&nbsp;</td>
+													<td height="16"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
